@@ -29,7 +29,7 @@ public class ObjetoEnviaEmail {
 	}
 	
 
-	public void enviarEmail() throws Exception{
+	public void enviarEmail(boolean envioHtml) throws Exception{
 		try {
 			Properties properties = new Properties();
 
@@ -57,8 +57,15 @@ public class ObjetoEnviaEmail {
 			message.setFrom(new InternetAddress(userName, nomeRemetente));/* Quem está enviando */
 			message.setRecipients(Message.RecipientType.TO, toUser);/* E-mail de destino */
 			message.setSubject(assuntoEmail);/* Assunto do e-mail */
-			message.setText(textoEmail);
+			
+			if(envioHtml) {
+				message.setContent(textoEmail, "text/html; charset=utf-8");
+			}else {
+				message.setText(textoEmail);
 
+			}
+			
+			
 			Transport.send(message);
 
 		} catch (Exception e) {
