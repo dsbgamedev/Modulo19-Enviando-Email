@@ -10,7 +10,7 @@
 
   <name>enviando-email</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,10 +22,19 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+       <groupId>com.sun.mail</groupId>
+       <artifactId>javax.mail</artifactId>
+        <version>1.6.2</version>
+    </dependency>
+    
   </dependencies>
+  
+  
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
