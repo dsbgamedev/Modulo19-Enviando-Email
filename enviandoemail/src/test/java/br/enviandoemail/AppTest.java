@@ -1,7 +1,5 @@
 package br.enviandoemail;
 
-
-
 /**
  * Unit test for simple App.
  */
@@ -16,7 +14,7 @@ public class AppTest {
 		stringBuilderTextoEmail.append("ola apenas teste <br/><br/>");
 		stringBuilderTextoEmail.append("Fazendo varios testes<br/><br/>");
 		
-		ObjetoEnviaEmail enviaEmail = new ObjetoEnviaEmail("douglas.bocatto@gmail.com, moraes@cbadiesel.com.br", 
+		ObjetoEnviaEmail enviaEmail = new ObjetoEnviaEmail("douglas.bocatto@gmail.com", 
 															"Douglas JDev",
 														    "Testando email",
 														    stringBuilderTextoEmail.toString());

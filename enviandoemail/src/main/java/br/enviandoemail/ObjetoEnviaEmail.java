@@ -3,6 +3,8 @@ package br.enviandoemail;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -120,6 +122,9 @@ public class ObjetoEnviaEmail {
 		message.setRecipients(Message.RecipientType.TO, toUser);/* E-mail de destino */
 		message.setSubject(assuntoEmail);/* Assunto do e-mail */
 		
+		
+		
+		
 		/*Parte 1 do email que é texto e a descrição do e-mail*/
 		MimeBodyPart corpoEmail = new MimeBodyPart();
 		
@@ -130,21 +135,33 @@ public class ObjetoEnviaEmail {
 
 		}
 		
+		List<FileInputStream> arquivos = new ArrayList<FileInputStream>();
+		arquivos.add(simuladorDePDF());
+		arquivos.add(simuladorDePDF());
+		arquivos.add(simuladorDePDF());
+		arquivos.add(simuladorDePDF());
+		
+		Multipart multipart = new MimeMultipart();//Esta juntando as duas partes 1 e 2 
+		multipart.addBodyPart(corpoEmail);
+		
+		int index = 0;
+		for (FileInputStream fileInputStream : arquivos) {
+			
 		/*Parte 2 do email que são os anexos do PDF*/
 		MimeBodyPart anexoEmail = new MimeBodyPart();
 		
 		//Onde é passado o simulador de PDF voce passa o arquivo gravado no banco de dados
-		anexoEmail.setDataHandler(new DataHandler(new ByteArrayDataSource(simuladorDePDF(), 
+		anexoEmail.setDataHandler(new DataHandler(new ByteArrayDataSource(fileInputStream, 
 				"application/pdf")));
-		anexoEmail.setFileName("anexoemail.pdf");
+		anexoEmail.setFileName("anexoemail" + index +".pdf");
 		
-		Multipart multipart = new MimeMultipart();//Esta juntando as duas partes 1 e 2 
-		multipart.addBodyPart(corpoEmail);
 		multipart.addBodyPart(anexoEmail);
 		
+		index++;
+		
+		}		
 		message.setContent(multipart);
-		
-		
+				
 		Transport.send(message);
 }
 	
