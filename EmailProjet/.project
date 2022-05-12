@@ -28,4 +28,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebContent/WEB-INF/lib/log4j-1.2.17.jar</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Downloads/apache-log4j-1.2.17/log4j-1.2.17.jar</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
