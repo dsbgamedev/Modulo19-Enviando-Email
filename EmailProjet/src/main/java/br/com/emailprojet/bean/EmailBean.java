@@ -14,7 +14,10 @@ import br.com.emailprojet.service.EmailService;
 @Named //Named referencia a classe bean
 @RequestScoped //Utilizando pacote CDI
 public class EmailBean implements Serializable{
-
+	
+	private static final String DESTINATARIO = "douglas.bocatto@gmail.com";
+	
+	private static final String ASSUNTO = "mudança de senha";
 	
 	private static final long serialVersionUID = -7450949716383915231L;
 	
@@ -28,6 +31,6 @@ public class EmailBean implements Serializable{
 
 	private Email montarEmail() {
 		EmailLayout layout = new EmailLayout();
-		return layout.montarEmailAdministrador("douglas.bocatto@gmail.com", "mudança de senha");
+		return layout.montarEmailAdministrador(DESTINATARIO, ASSUNTO);
 	}
 }
