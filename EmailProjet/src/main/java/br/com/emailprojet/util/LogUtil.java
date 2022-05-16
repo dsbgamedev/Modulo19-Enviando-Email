@@ -8,6 +8,7 @@ public class LogUtil {
 	
 	public static Logger getLogger(Object object) {
 		return Logger.getLogger(object.getClass());
+
 	}
 
 }
