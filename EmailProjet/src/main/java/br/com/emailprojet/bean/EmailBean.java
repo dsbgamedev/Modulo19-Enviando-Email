@@ -15,7 +15,7 @@ import br.com.emailprojet.service.EmailService;
 @RequestScoped //Utilizando pacote CDI
 public class EmailBean implements Serializable{
 	
-	private static final String DESTINATARIO = "douglas.bocatto@gmail.com";
+	private static final String DESTINATARIO = "dsbocatto@gmail.com";
 	
 	private static final String ASSUNTO = "mudança de senha";
 	

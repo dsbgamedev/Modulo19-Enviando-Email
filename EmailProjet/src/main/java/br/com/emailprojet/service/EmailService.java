@@ -62,7 +62,7 @@ public class EmailService extends Thread{
 			
 			try {
 				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress(System.getProperty("email-project.mail.smtp.host")));
+				message.setFrom(new InternetAddress(System.getProperty("email-project.mail.from")));
 				
 				if(email.getDestinatario().contains("/")) {
 					List<InternetAddress> emailsLocal = new ArrayList<>();
@@ -88,6 +88,7 @@ public class EmailService extends Thread{
 			} catch (MessagingException e) {
 				
 				LogUtil.getLogger(EmailService.class).error("Erro ao enviar email" + e.getMessage());
+				
 				
 			}
 			
